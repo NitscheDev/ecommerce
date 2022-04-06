@@ -18,6 +18,7 @@
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.10",
+    "smart-generator": "^1.1.0",
     "uuid": "^8.3.2"
   }
 }
