@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 const { getToken } = require('../helpers/auth')
 const { createError } = require('../helpers/http')
+const Token = require('../models/token')
 
 exports.requireAuth = async (req,res,next) => {
     const token = req.cookies.access_token
@@ -32,6 +33,11 @@ exports.requireAuth = async (req,res,next) => {
                 return createError(req,res,500,error)
             })
         } catch (error) {
+            //delete invalid token from database -> getToken does this but only if the userId is provided
+            //which it wont be in this case since the token in the cookie itself is invalid
+            Token.deleteOne({ token }, (error) => {
+                if (error) reject(error)
+            })
             //invalid token
             return createError(req,res,401,'Invalid or no access token')
         }
