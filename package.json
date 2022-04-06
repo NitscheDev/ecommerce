@@ -14,11 +14,15 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "http-errors": "^2.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.10",
     "smart-generator": "^1.1.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "valix": "^1.0.5"
   }
 }
